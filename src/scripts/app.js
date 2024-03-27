@@ -2,6 +2,16 @@
 
 import { User, Subscriber } from './User.js';
 
+const currentUser = new Subscriber(
+  'IDX445987C',                       //id
+  'John Doe',                         //name
+  'jdoe',                             //username
+  'jdoe@me.com',                      //email
+  ['page1', 'page2', 'page3'],        //pages 
+  ['group1', 'group2', 'group3'],     //groups
+  true                                //canMonetize
+  );
+
 window.addEventListener('load', function() {
   const fileInput = document.getElementById('image-input');
   const imageContainer = document.getElementById('image-container');

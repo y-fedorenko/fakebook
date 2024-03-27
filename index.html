@@ -18,23 +18,29 @@
       <div class="container header-container">
         <div>
           <div class="title libre-font">
-            <h2>Royal Oak</h2>
+            <h2>FAKEBOOK</h2>
           </div>
         </div>
         <nav>
           <ul class="menu" id="nav-menu">
-            <li><a href="#browse-homes">Homes</a></li>
-            <li><a href="#about-us">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a id="login-btn">Login</a></li>
+            <li><a href="#">Friends</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">My ads</a></li>
+            <li><a href="#">Settings</a></li>
           </ul>
         </nav>
-        <div><i class="fa-solid fa-bars"></i></div>
+        <div><img id ="avatar" src="./src/media/avatar.jpg" alt="avatar"></div>
       </div>
     </header>
     <main>
-      <input type="file" id="image-input" accept="image/*">
-    <div id="image-container"></div>
+      <div class="container">
+        <div class="post-wrapper">
+          <textarea id="post-input" placeholder="What's on your mind?" class="fixed-size-textarea"></textarea>
+          <input type="file" id="image-input" accept="image/*">
+        </div>
+        <div id="image-container"></div>
+      </div>
     </main>
     <footer></footer>
   </body>
