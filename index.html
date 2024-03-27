@@ -35,11 +35,23 @@
     </header>
     <main>
       <div class="container">
-        <div class="post-wrapper">
-          <textarea id="post-input" placeholder="What's on your mind?" class="fixed-size-textarea"></textarea>
-          <input type="file" id="image-input" accept="image/*">
+        <div id="post-wall-wrapper">
+          <div class="input-wrapper">
+            <div>
+              <textarea id="post-input" placeholder="What's on your mind?" class="fixed-size-textarea"></textarea>
+            <div>
+              <label for="image-input" class="image-label">
+                <input type="file" id="image-input" class="image-input" accept="image/*">
+                <span class="icon"><i class="fas fa-upload"></i></span>
+              </label>         
+              <input type='button' class="post-button" value='Post'>
+            </div>
+            </div>
+          </div>
+          <div id="post-wall">
+            <!-- posts -->
+          </div>
         </div>
-        <div id="image-container"></div>
       </div>
     </main>
     <footer></footer>

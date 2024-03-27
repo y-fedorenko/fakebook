@@ -12,24 +12,46 @@ const currentUser = new Subscriber(
   true                                //canMonetize
   );
 
-window.addEventListener('load', function() {
-  const fileInput = document.getElementById('image-input');
-  const imageContainer = document.getElementById('image-container');
+const postButton = document.querySelector('.post-button');
+const postInput = document.querySelector('#post-input');
+const postWall = document.querySelector('#post-wall');
+const imageInput = document.getElementById('image-input');
 
-  fileInput.addEventListener('change', function(event) {
-    const file = event.target.files[0];
+function addPost() {
 
-    if (file) { // if file is selected then it is truethy
-      const reader = new FileReader();
-      
-      reader.onload = function(e) {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        imageContainer.innerHTML = ''; 
-        imageContainer.appendChild(img);
-      };
-      
-      reader.readAsDataURL(file); // Convert file to base64, 
-    }
-  });
-});
+  if (!(imageInput.files[0] || postInput.value)) return; // no input - do nothing
+
+
+  const newDiv = document.createElement('div');
+  const postDate = new Date();
+
+  let imageSource;
+
+ (imageInput.files[0]) ? imageSource = 
+  `<div id="image-container"><img id ="post-image" src="
+  ${URL.createObjectURL(imageInput.files[0])}" alt="image"></div>` 
+  : imageSource = '';
+  
+  newDiv.innerHTML = `
+    <div class="post-header">
+     <div class="flex">
+        <img id ="avatar" src="./src/media/avatar.jpg" alt="avatar"> 
+        <p>${currentUser.name}</p></div>
+        <p>${postDate.toDateString()}</p>
+      </div>
+      <div class="post-content">
+        <p>${postInput.value}</p>
+        ${imageSource}
+      </div>
+    </div>`;
+  newDiv.classList.add('post');
+  postWall.appendChild(newDiv);
+  resetInput();
+}
+
+function resetInput() {
+  postInput.value = '';
+  imageInput.value = '';
+}
+
+postButton.addEventListener('click', addPost);

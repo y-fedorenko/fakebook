@@ -1,16 +1,21 @@
 @import url("./reset.css");
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+
 
 * {
-  font-family: 'Inter', 'Poppins', 'PT Sans', Arial, sans-serif;
+  font-family:  'Inter', 'Poppins', 'PT Sans', Arial, sans-serif;
 }
 
 :root {
-  --dark-color : #1f1e1e;
+  --dark-color : #313033;
+  --background-dark : #1c1b1e;
+  --fakebook-blue: #3b78ce;
 }
 
 html, body {
   height: 100%;
+  background-color: var(--background-dark);
 }
 
 .flex {
@@ -37,9 +42,10 @@ header {
 
 header h2,
 header h2 a {
-  font-size: 26px;
+  font-family: "Teko", Arial, sans-serif; 
+  font-size: 32px;
   font-weight: 500;
-  color: #fff;
+  color: var(--fakebook-blue);
   line-height: 60px;
 }
 
@@ -69,7 +75,7 @@ a {
 }
 
 a:hover{
-  color: rgb(197, 197, 195);
+  color: var(--fakebook-blue);
 }
 
 #avatar {
@@ -77,12 +83,15 @@ a:hover{
   height: 40px;
   border-radius: 50%;
   line-height: 60px;
-  margin-top: 10px;
   border: 2px solid #fff;
 }
 
+header #avatar {
+ margin-top: 10px;
+}
+
 #avatar:hover {
-  border: 2px solid rgb(197, 197, 195);
+  border: 2px solid var(--fakebook-blue);
   scale: 1.05;
 }
 
@@ -90,11 +99,69 @@ a:hover{
 Main
 */
 
+.post-wall-wrapper {
+  width: 100%;
+  align-content: center;
+}
+
 .fixed-size-textarea {
-  width: 100%; 
-  height: 200px; 
+  width: 600px; 
+  height: 100px; 
   resize: none;
   background-color: aqua;
+}
+
+textarea::placeholder {
+  color: #f8f8f8; /* Placeholder text color */
+}
+
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.image-label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.image-input {
+  position: absolute;
+  left: -9999px; /* Hides the input, leaving only the label, that act as button */
+}
+
+.icon {
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  line-height: 30px;
+  text-align: center;
+  background-color: #ccc; 
+  border: 1px solid #aaa; 
+  border-radius: 5px; 
+}
+
+.icon i {
+  color: #333; 
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px;
+  background-color: #fff;
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 40px;
+  }
 }
 
 #image-container {
@@ -103,4 +170,3 @@ Main
   display: block; 
   object-fit: contain;
 }
-
