@@ -17,6 +17,7 @@ const postButton = document.querySelector('.post-button');
 const postInput = document.querySelector('#post-input');
 const postWall = document.querySelector('#post-wall');
 const imageInput = document.getElementById('image-input');
+const fileNameLabel = document.getElementById('image-name');
 
 const placeHolderList = [
   "What\'s on your mind",
@@ -65,6 +66,7 @@ function addPost() {
 function resetInput() {
   postInput.value = '';
   imageInput.value = '';
+  fileNameLabel.textContent = '';
 }
 
 postButton.addEventListener('click', addPost);
@@ -73,7 +75,7 @@ window.addEventListener('load', init); // random placeholder for textinput
 
 //this function shows the name of the image selected instead of the standard text
 imageInput.addEventListener('change', function() {
-  const fileNameLabel = document.getElementById('image-name');
+
   if (imageInput.files.length !== 0) {
     const fileName = imageInput.files[0].name;
     fileNameLabel.textContent = fileName;
