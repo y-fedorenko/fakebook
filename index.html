@@ -32,20 +32,24 @@
         </nav>
         <div><img id ="avatar" src="./src/media/avatar.jpg" alt="avatar"></div>
       </div>
+      <dialog id="dialog"></dialog>
     </header>
     <main>
-      <div class="container">
+      <div class="container center">
         <div id="post-wall-wrapper">
           <div class="input-wrapper">
             <div>
               <textarea id="post-input" placeholder="What's on your mind?" class="fixed-size-textarea"></textarea>
-            <div>
-              <label for="image-input" class="image-label">
-                <input type="file" id="image-input" class="image-input" accept="image/*">
-                <span class="icon"><i class="fas fa-upload"></i></span>
-              </label>         
-              <input type='button' class="post-button" value='Post'>
-            </div>
+              <div class="input-area flex space-between">
+                <div class="flex">
+                  <label for="image-input" class="image-label">
+                    <input type="file" id="image-input" class="image-input" accept="image/*">
+                    <span class="icon"><i class="fa-regular fa-image"></i></span>
+                  </label>   
+                  <p id="image-name"></p>
+                </div>
+                <input type='button' class="post-button" value='Post'>
+              </div>
             </div>
           </div>
           <div id="post-wall">

@@ -1,6 +1,7 @@
 'use strict';
 
 import { User, Subscriber } from './User.js';
+import { getRandomNumber } from './Utils.js';
 
 const currentUser = new Subscriber(
   'IDX445987C',                       //id
@@ -16,6 +17,18 @@ const postButton = document.querySelector('.post-button');
 const postInput = document.querySelector('#post-input');
 const postWall = document.querySelector('#post-wall');
 const imageInput = document.getElementById('image-input');
+
+const placeHolderList = [
+  "What\'s on your mind",
+  "What\'s new",
+  "Share your thoughts",
+  "Anything new today",
+  "How are you doing"
+];
+
+function init() {
+  postInput.placeholder = `${placeHolderList[getRandomNumber(placeHolderList.length - 1)]}, ${currentUser.name}?`;
+}
 
 function addPost() {
 
@@ -55,3 +68,29 @@ function resetInput() {
 }
 
 postButton.addEventListener('click', addPost);
+window.addEventListener('load', init); // random placeholder for textinput
+
+
+//this function shows the name of the image selected instead of the standard text
+imageInput.addEventListener('change', function() {
+  const fileNameLabel = document.getElementById('image-name');
+  if (imageInput.files.length !== 0) {
+    const fileName = imageInput.files[0].name;
+    fileNameLabel.textContent = fileName;
+  } else fileNameLabel.textContent = '';
+});
+
+
+const dialog = document.querySelector("dialog");
+const avatar = document.querySelector("#avatar");
+// "Show the dialog" button opens the dialog modally
+avatar.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+//closes by clicking ouside of the dialog box
+dialog.addEventListener('click', (event) => {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+});
