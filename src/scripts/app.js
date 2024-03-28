@@ -51,7 +51,7 @@ function addPost() {
      <div class="flex">
         <img id ="avatar" src="./src/media/avatar.jpg" alt="avatar"> 
         <p>${currentUser.name}</p></div>
-        <p>${postDate.toDateString()}</p>
+        <p>${postDate.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
       </div>
       <div class="post-content">
         <p>${postInput.value}</p>
