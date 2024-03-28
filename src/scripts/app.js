@@ -4,13 +4,13 @@ import { User, Subscriber } from './User.js';
 import { getRandomNumber } from './Utils.js';
 
 const currentUser = new Subscriber(
-  'IDX445987C',                       //id
-  'John Doe',                         //name
-  'jdoe',                             //username
-  'jdoe@me.com',                      //email
-  ['Darwin Society', 'Elemental Maths', 'Amazing'],        //pages 
+  'IDX445987C',                                       //id
+  'John Doe',                                         //name
+  'jdoe',                                             //username
+  'jdoe@me.com',                                      //email
+  ['Darwin Society', 'Elemental Maths', 'Amazing'],   //pages 
   ['Classmates', 'Friends', 'Community college'],     //groups
-  true                                //canMonetize
+  true                                                //canMonetize
   );
 
 const postButton = document.querySelector('.post-button');
@@ -28,7 +28,8 @@ const placeHolderList = [
 ];
 
 function init() {
-  postInput.placeholder = `${placeHolderList[getRandomNumber(placeHolderList.length - 1)]}, ${currentUser.name}?`;
+  postInput.placeholder = `${placeHolderList
+    [getRandomNumber(placeHolderList.length - 1)]}, ${currentUser.name}?`;
 }
 
 function addPost() {
@@ -51,7 +52,8 @@ function addPost() {
      <div class="flex">
         <img id ="avatar" src="./src/media/avatar.jpg" alt="avatar"> 
         <p>${currentUser.name}</p></div>
-        <p>${postDate.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+        <p>${postDate.toLocaleDateString(
+          'en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
       </div>
       <div class="post-content">
         <p>${postInput.value}</p>
@@ -110,7 +112,8 @@ function fillUserData() {
   const infoGroups = document.querySelector("#info-groups");
   const infoMonetize = document.querySelector("#info-monetize");
 
-  let [id, name, username, email, pages, groups, canMonetize] = currentUser.getInfo().split("|");
+  let [id, name, username, email, pages, groups, canMonetize] 
+    = currentUser.getInfo().split("|");
 
   infoId.textContent = id;
   infoName.textContent = name;
