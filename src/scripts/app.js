@@ -59,7 +59,10 @@ function addPost() {
       </div>
     </div>`;
   newDiv.classList.add('post');
-  postWall.appendChild(newDiv);
+
+
+  const firstPost = postWall.firstChild;
+  postWall.insertBefore(newDiv, firstPost);
   resetInput();
 }
 
