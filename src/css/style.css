@@ -11,7 +11,7 @@
   --dark-color : #313033;
   --background-dark : #1c1b1e;
   --fakebook-blue: #3b78ce;
-  --post-background: #edf4f7;
+  --post-background: #ecf1f4;
 }
 
 html, body {
@@ -102,7 +102,7 @@ header #avatar {
 
 #avatar:hover {
   border: 2px solid var(--fakebook-blue);
-  scale: 1.05;
+  scale: 1.10;
 }
 
 
@@ -248,6 +248,7 @@ img + p {
   display: block; 
   object-fit: contain;
   place-content: center;
+  border-radius: 10px;
 }
 
 #image-container {
@@ -260,19 +261,44 @@ Dialog
 */
 
 dialog {
+  color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: var(--dark-color);
   padding: 20px;
   z-index: 1;
   border-radius: 10px;
   width: 320px;
-  height: 500px;
-  border: none;
 }
 /* Styling the Overlay (backdrop) */
 dialog::backdrop {
-  background-color: rgba(69, 67, 67, 0.3);
+  background-color: rgba(136, 137, 139, 0.1);
+}
+
+#big-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--fakebook-blue);
+  transition: all 0.25s ease-in-out;
+}
+
+dialog h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+dialog p {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 500;
+
+  span {
+    font-weight: 300;
+    font-size: 16px;
+    color: #fff;
+  }
 }

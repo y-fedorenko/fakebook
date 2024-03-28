@@ -8,8 +8,8 @@ const currentUser = new Subscriber(
   'John Doe',                         //name
   'jdoe',                             //username
   'jdoe@me.com',                      //email
-  ['page1', 'page2', 'page3'],        //pages 
-  ['group1', 'group2', 'group3'],     //groups
+  ['Darwin Society', 'Elemental Maths', 'Amazing'],        //pages 
+  ['Classmates', 'Friends', 'Community college'],     //groups
   true                                //canMonetize
   );
 
@@ -94,3 +94,21 @@ dialog.addEventListener('click', (event) => {
     dialog.close();
   }
 });
+
+function fillUserData() {
+  const infoId = document.querySelector("#info-id");
+  const infoName = document.querySelector("#info-name");
+  const infoEmail = document.querySelector("#info-email");
+  const infoPages = document.querySelector("#info-pages");
+  const infoGroups = document.querySelector("#info-groups");
+  const infoMonetize = document.querySelector("#info-monetize");
+
+  infoId.textContent = currentUser.id;
+  infoName.textContent = currentUser.name;
+  infoEmail.textContent = currentUser.email;
+  infoPages.textContent = currentUser.pages.join(", ") + ".";
+  infoGroups.textContent = currentUser.groups.join(", ") + ".";
+  currentUser.canMonetize ? infoMonetize.textContent = 'Yes' : infoMonetize.textContent = 'No';
+}
+
+window.addEventListener('load', fillUserData);
