@@ -1,4 +1,4 @@
 # fakebook
 
-Click [here](https://y-fedorenko.github.io/fakebook/) to check my own social media feed.
+Click [here](https://y-fedorenko.github.io/fakebook/) to check out my own social media feed.
 

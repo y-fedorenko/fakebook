@@ -17,7 +17,7 @@ export class User {
   get email() { return this.#email; }
 
   getInfo() {
-    return `${this.#id} ${this.#name} ${this.#username} ${this.#email}`;
+    return `${this.#id}|${this.#name}|${this.#username}|${this.#email}`;
   }
 
   setId(id) { this.#id = id; }
@@ -73,6 +73,6 @@ export class Subscriber extends User {
   }
 
   getInfo() {
-    return `${super.getInfo()} ${this.#pages} ${this.#groups} ${this.#canMonetize}`;
+    return `${super.getInfo()}|${this.#pages}|${this.#groups}|${this.#canMonetize}`;
   }
 }
